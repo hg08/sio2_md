@@ -1,0 +1,28 @@
+clear
+units metal
+dimension 3
+boundary p p p
+atom_style atomic
+
+
+lattice fcc 3.615 origin 0.0 0.0 0.0 orient x 1 0 0 orient y 0 1 0 orient z 0 0 1
+region box block 0 50 0 50 0 50 units lattice
+create_box 1 box
+create_atoms 1 box
+
+pair_style eam
+pair_coeff * * Cu_smf7.eam
+timestep 0.002
+
+variable R equal 0.005   #strain rate 0.005/ps
+
+
+
+thermo 1000
+thermo_style custom step temp press vol density pxx pyy pzz lx ly lz
+dump 1 all custom 1000 lammps.str1 id type x y z vx vy vz
+
+velocity all create 300 12345 mom yes rot no
+fix equilibration all npt temp 300 300 0.2 iso 0 0 2 drag 1
+
+run 5000

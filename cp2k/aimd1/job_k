@@ -1,0 +1,12 @@
+#!/bin/bash
+#SBATCH -J aimd_go
+#SBATCH -p paratera
+#SBATCH -N 1
+#SBATCH -n 24 
+#SBATCH -t 28800 
+source /PARA/app/scripts/cn-module.sh
+inp_cp2k="inp4s"
+out_cp2k="sio2-1_dynamics.out"
+#inp_list="H2O-128.xyz inp4 GTH_POTENTIALS BASIS_MOLOPT dftd3.dat"
+module load cp2k/6.1
+yhrun cp2k.psmp -i $inp_cp2k -o $out_cp2k
