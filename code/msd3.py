@@ -18,10 +18,10 @@ def msd3(r_arr,a,b,c):
 
 if __name__ == "__main__":
     index = 1
-    steps = 100
+    steps = 20
     natom = 512
     a = 28.640
     r_arr = load_r(index,steps,natom)
     print(r_arr[0])
     delta_r2 = msd3(r_arr,a,a,a)
-    plot_msd(delta_r2) 
+    plot_msd(delta_r2,index) 
