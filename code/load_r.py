@@ -6,7 +6,7 @@ def load_r(index,steps,natom):
     r = np.zeros((steps,natom,3))
     for t in range(steps):    
         # Load data from a text file.
-        fname = '../data/new_{:d}.xyz'.format(index)
+        fname = '../data/pos_{:d}.xyz'.format(index)
         skip_t = skiprows + t*(natom+skiprows)
         print("{}".format(skip_t))
         # Read the j-th column as an array
