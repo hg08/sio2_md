@@ -15,4 +15,5 @@ if __name__ == "__main__":
         r_arr = load_r(index_list[j],steps,natom_list[j])
         print(r_arr[0])
         delta_r2 = msd3(r_arr,a,a,a)
+        np.save("../data/msd_atom{}.npy".format(index_list[j]), delta_r2)
         plot_msd(delta_r2,index_list[j]) 

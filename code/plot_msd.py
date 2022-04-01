@@ -11,9 +11,9 @@ def plot_msd(arr,index,dt=80, unit=10):
     print(arr)
     fig = plt.figure()
     ax = fig.add_subplot(111) # add_subplot() adds an axes to a figure, it returns a (subclass of a) matplotlib.axes.Axes object.
-    ax.set_xlim(0, 300)
-    ax.set_ylim(0.001, 1.0)
-    #ax.set_xscale('log')
+    ax.set_xlim(0.01, 500)
+    ax.set_ylim(0.0001, 20.0)
+    ax.set_xscale('log')
     ax.set_yscale('log')
     tw_index_list = [0,2,4,8]
     tw_list = [tw*dt for tw in tw_index_list]
